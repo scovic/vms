@@ -1,16 +1,19 @@
-import Visitor from "../entities/visitor";
-import Gatekeeper from "../entities/Gatekeeper";
-import VisitRecord from "../entities/VisitRecord";
+import {
+  Visitor,
+  Gatekeeper,
+  VisitRecord
+} from '../entities'
 
-export interface RecordVisitService {
-  saveVisitRecord (visitRecord: VisitRecord): Promise<VisitRecord>
+export interface CreateRecordVisitService {
+  createVisitRecord (visitor: Visitor, gatekeeper: Gatekeeper, startVisit: Date): Promise<VisitRecord>
 }
 
 export class RecordVisitInteractor {
-  constructor (private recordVisitService: RecordVisitService) {}
+  constructor (private recordVisitService: CreateRecordVisitService) {}
 
+  // TODO: Don't pass visitor and gatepeer
   async recordVisit (visitor: Visitor, gatekeeper: Gatekeeper): Promise<VisitRecord> {
-    const visitRecord = new VisitRecord(visitor, gatekeeper, new Date())
-    return this.recordVisitService.saveVisitRecord(visitRecord)
+    const date = new Date()
+    return this.recordVisitService.createVisitRecord(visitor, gatekeeper, date)
   }
 }

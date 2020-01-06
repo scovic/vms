@@ -1,7 +1,7 @@
-import Visitor from "./visitor";
-import Gatekeeper from "./Gatekeeper";
+import { Visitor } from "./Visitor";
+import { Gatekeeper } from "./Gatekeeper";
 
-class VisitRecord {
+export class VisitRecord {
   constructor (
     private visitor: Visitor,
     private gateKeeper: Gatekeeper,
@@ -12,5 +12,3 @@ class VisitRecord {
     this.endVisit = endVisit
   }
 }
-
-export default VisitRecord
