@@ -1,8 +1,8 @@
 export { visitRecordReducer } from './reducer'
 export { visitRecordsSelector } from './state'
 
-export { 
+export {
   createVisitRecordAction,
   updateVisitRecordsAction,
-  VisitRecordsActionType 
+  VisitRecordsActionType
 } from './actions'

@@ -9,7 +9,7 @@ export interface CreateRecordVisitService {
 }
 
 export class RecordVisitInteractor {
-  constructor (private recordVisitService: CreateRecordVisitService) {}
+  constructor (private readonly recordVisitService: CreateRecordVisitService) {}
 
   // TODO: Don't pass visitor and gatepeer
   async recordVisit (visitor: Visitor, gatekeeper: Gatekeeper): Promise<VisitRecord> {

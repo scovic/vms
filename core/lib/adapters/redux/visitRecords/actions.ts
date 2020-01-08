@@ -4,7 +4,7 @@ export const UPDATE_VISIT_RECORD = 'UPDATE_VISIT_RECORD'
 export const SAVE_VISIT_RECORD = 'SAVE_VISIT_RECORD'
 
 export interface VisitRecordsActionType {
-  type: string,
+  type: string
   visitRecord: VisitRecord
 }
 

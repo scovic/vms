@@ -1,7 +1,7 @@
-import { VisitRecord, Gatekeeper } from "../../entities";
+import { VisitRecord, Gatekeeper } from '../../entities'
 
 export interface StateType {
-  readonly visitRecords: VisitRecord[] | null,
+  readonly visitRecords: VisitRecord[] | null
   readonly gatekeeper: Gatekeeper | null
 }
 

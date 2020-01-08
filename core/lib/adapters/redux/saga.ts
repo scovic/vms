@@ -1,4 +1,4 @@
-import { all, call, put, takeLatest } from 'redux-saga/effects'
+import { all, put, takeLatest } from 'redux-saga/effects'
 import { Visitor, Gatekeeper } from '../../entities'
 import { createVisitRecordAction } from './visitRecords/actions'
 import { RecordVisitInteractor } from '../../useCases'
@@ -7,9 +7,9 @@ import { VisitRecordService } from '../../services'
 export const RECORD_VISIT = 'visitRecord/save'
 
 export interface RecordVisitActionType {
-  type: string,
-  firstName: string,
-  lastName: string,
+  type: string
+  firstName: string
+  lastName: string
 }
 
 export const recordVisitAction = (firstName: string, lastName: string): RecordVisitActionType => {
@@ -20,7 +20,7 @@ export const recordVisitAction = (firstName: string, lastName: string): RecordVi
   }
 }
 
-function* recordVisitSaga (action: RecordVisitActionType) {
+function * recordVisitSaga (action: RecordVisitActionType) {
   const { firstName, lastName } = action
 
   try {
@@ -29,7 +29,7 @@ function* recordVisitSaga (action: RecordVisitActionType) {
 
     const visitRecordService = new VisitRecordService()
     const recordVisitInteractor = new RecordVisitInteractor(visitRecordService)
-    
+
     const visitRecord = yield recordVisitInteractor.recordVisit(visitor, gatekeeper)
     yield put(createVisitRecordAction(visitRecord))
   } catch (err) {
@@ -38,7 +38,7 @@ function* recordVisitSaga (action: RecordVisitActionType) {
   }
 }
 
-export function* rootSaga () {
+export function * rootSaga () {
   yield all([
     takeLatest(RECORD_VISIT, recordVisitSaga)
   ])

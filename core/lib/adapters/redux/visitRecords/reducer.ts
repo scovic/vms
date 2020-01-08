@@ -12,10 +12,10 @@ const saveVisitRecordHandler = (state: StateSlice, action: VisitRecordsActionTyp
 export const visitRecordReducer = (
   state: StateSlice = initial,
   action: VisitRecordsActionType): StateSlice => {
-    switch (action.type) {
-      case SAVE_VISIT_RECORD:
-        return saveVisitRecordHandler(state, action)
-      default:
-        return null
-    }
+  switch (action.type) {
+    case SAVE_VISIT_RECORD:
+      return saveVisitRecordHandler(state, action)
+    default:
+      return null
   }
+}
