@@ -14,7 +14,9 @@ const VisitRecordTable: FC<PropTypes> = ({ visitRecords }) => {
 
   return (
     <table>
-      {visitRecords.map(record => <VisitRecordTableRow visitRecord={record} />)}
+      <tbody>
+        {visitRecords.map((record, index) => <VisitRecordTableRow key={index} visitRecord={record} />)}
+      </tbody>
     </table>
   )
 }

@@ -6,7 +6,7 @@ export class VisitRecord {
     private readonly visitor: Visitor,
     private readonly gatekeeper: Gatekeeper,
     private readonly startVisit: Date,
-    private endVisit?: Date) {}
+    private endVisit: Date | null = null) {}
 
   set checkOut (endVisit: Date) {
     this.endVisit = endVisit
@@ -22,5 +22,9 @@ export class VisitRecord {
 
   get startVisitDateString (): string {
     return this.startVisit.toDateString()
+  }
+
+  get endVisitDateString (): string {
+    return this.endVisit ? this.endVisit.toDateString() : '-'
   }
 }

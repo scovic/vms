@@ -6,7 +6,8 @@ import {
 } from './actions'
 
 const saveVisitRecordHandler = (state: StateSlice, action: VisitRecordsActionType): StateSlice => {
-  return [action.visitRecord]
+  const newState = !state ? [action.visitRecord] : [...state, action.visitRecord] 
+  return newState
 }
 
 export const visitRecordReducer = (
@@ -16,6 +17,6 @@ export const visitRecordReducer = (
     case SAVE_VISIT_RECORD:
       return saveVisitRecordHandler(state, action)
     default:
-      return null
+      return state
   }
 }
